@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useRef, useState } from "react";
+import { Content } from "./components/content/Content";
+import { Footer } from "./components/footer/Footer";
+import { Header } from "./components/header/Header";
+import Box from "@material-ui/core/Box";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div style={{ width: "100%", minHeight: "100vh" }}>
+      <Box display="flex" flexDirection="column">
+        <Box flexGrow={1} bgcolor="grey.300">
+          <Header />
+        </Box>
+        <Box p={1}>
+          <Content />
+        </Box>
+        <Box
+          p={1}
+          bgcolor="grey.300"
+          style={{ width: "100%" }}
+          css={{ position: "fixed", bottom: "0" }}
         >
-          Learn React
-        </a>
-      </header>
+          <Footer />
+        </Box>
+      </Box>
     </div>
   );
 }
